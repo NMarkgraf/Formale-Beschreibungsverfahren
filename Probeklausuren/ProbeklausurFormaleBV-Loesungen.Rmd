@@ -6,7 +6,7 @@ date: "9.12.2019"
 fontsize: 12pt
 papersize: a4
 # linestretch: 1.25
-indent: 0
+# indent: 0
 margin-left: 2.5cm
 margin-right: 2.5cm
 margin-top: 2.5cm
@@ -65,32 +65,32 @@ digraph nea_1 {
     q2 -> q2 [ label = "0" ];
     q3 -> q2 [ label = "0" ];
     q3 -> q4 [ label = "1" ];
-    q4 -> q2 [ label = "0"];
-    q4 -> q4 [ label = "1"];
+    q4 -> q2 [ label = "0" ];
+    q4 -> q4 [ label = "1" ];
     
-    {rank=same; q4, q2}
-
+    {rank=same; q2, q3, q4}
 
 }
 
 ```
 
+
 c) Die Übergangsfunktion als Tabelle:
 
 
-+------------------------+----------+---------+
-|                        |   0      |   1     |
-+=======================:+:========:+:=======:+
-| $\longrightarrow q_0$  |  $q_1$   | $\bot$  |
-+------------------------+----------+---------+
-| $q_1$                  |  $q_2$   | $\bot$  |
-+------------------------+----------+---------+
-| $q_2$                  |  $q_2$   | $q_3$   |
-+------------------------+----------+---------+
-| $q_3$                  |  $q_2$   | $q_4$   |
-+------------------------+----------+---------+
-| $* \;q_4$              |  $q_2$   | $q_4$   |
-+------------------------+----------+---------+
++------------+----------+---------+
+|            |   0      |   1     |
++===========:+:========:+:=======:+
+| $\to q_0$  |  $q_1$   | $\bot$  |
++------------+----------+---------+
+| $q_1$      |  $q_2$   | $\bot$  |
++------------+----------+---------+
+| $q_2$      |  $q_2$   | $q_3$   |
++------------+----------+---------+
+| $q_3$      |  $q_2$   | $q_4$   |
++------------+----------+---------+
+| \* $q_4$   |  $q_2$   | $q_4$   |
++------------+----------+---------+
 
 
 Alternativ können Sie auch mit einer *totalen* statt einer *partiellen* Übergangsfunktion arbeiten:
@@ -138,6 +138,8 @@ digraph nea_1 {
 
 ```
 
+\pagebreak
+
 c') Die Übergangsfunktion als Tabelle:
 
 
@@ -152,7 +154,7 @@ c') Die Übergangsfunktion als Tabelle:
 +------------------------+----------+---------+
 | $q_3$                  |  $q_2$   | $q_4$   |
 +------------------------+----------+---------+
-| $* \;q_4$              |  $q_2$   | $q_4$   |
+| \* $q_4$               |  $q_2$   | $q_4$   |
 +------------------------+----------+---------+
 | $q_5$                  |  $q_5$   | $q_5$   |
 +------------------------+----------+---------+
@@ -163,7 +165,7 @@ c') Die Übergangsfunktion als Tabelle:
 
 a) $L_A =\left\{w \in \{a,b\}^* \mid \exists n,m \in \mathbf{N}_0.w= lvr . l=a^n\wedge v=(ab)^m \wedge (r=b \vee r=\epsilon) \right\}$
 
-b) Ein möglicher 
+b) Ein möglicher Graph für einen DEA lautet:
 
 ```{r DEA_zu_NEA_1, engine="dot", echo=FALSE, cache=TRUE}
 digraph nea_1 {
@@ -198,6 +200,8 @@ a) Der Automat lässt sich beschreiben als $A=(Q, \Sigma, \delta, s, F)$ mit
     - Startzustand $s=q_0 \in Q$
     - Endzuständen $F=\{q_6\}\subseteq Q$
     
+\pagebreak
+
 b) Der Graph zur Übergangsfunktion lautet:
 
 ```{r DEA_Aufgabe_3, engine="dot", echo=FALSE, cache=TRUE}
@@ -415,13 +419,25 @@ digraph nea_1 {
 
 ## Lösung zur Aufgabe 6
 
-a) **abab** wird akzeptiert:
+a) **abab** wird akzeptiert!
+    Lösung mit Konfigurationsübergängen:
+$$(z_0, abab) \vdash (z_1, bab) \vdash (z_2, ab) \vdash (z_3, b) \vdash (z_4, \epsilon)$$
+    Und $z_4$ ist ein Endzustand!
 
-b) *abaa* wird nicht akzeptiert:
+b) *abaa* wird nicht akzeptiert!
+    Lösung mit Konfigurationsübergängen:
+$$(z_0, abaa) \vdash (z_1, baa) \vdash (z_2, aa) \vdash (z_3, a) \vdash (z_3, \epsilon)$$
+    Aber $z_3$ ist **kein** Endzustand!
 
 c) **abbaabb** wird akzeptiert:
-
-
+    Lösung mit Konfigurationsübergängen:
+$$\begin{aligned}
+(z_0, abbaabb) &\vdash (z_1, bbaabb) \vdash (z_2, baabb) \vdash(z_2, aabb) \\
+               &\vdash (z_3, abb) \vdash (z_3, bb) \vdash (z_4, b) \vdash (z_4, \epsilon)
+  \end{aligned}$$
+    Und $z_4$ ist ein Endzustand!
+    
+    
 ## Lösung zur Aufgabe 7
 
 a)
@@ -432,3 +448,10 @@ c)
 
 
 ## Lösung zur Aufgabe 8
+
+...
+
+
+## Lösung zur Aufgabe 9
+
+...

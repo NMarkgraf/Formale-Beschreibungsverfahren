@@ -80,8 +80,15 @@ if __name__ == '__main__':
        "q1": {"a": "q2"},
        "q2":             {"b": "q2"}}
 
+    # Tabelle der Übergangsfunktion
+    d={"q0":{"a" : "q1", "b" : "q0"},
+       "q1":{"a" : "q1", "b" : "q2"},
+       "q2":{"a" : "q3", "b" : "q2"},
+       "q3":{"a" : "q3", "b" : "q4"},
+       "q4":{"a" : "q5", "b" : "q4"},
+       "q5":{"a" : "q5", "b" : "q4"}}
 
-    if dea({"q0", "q1", "q2"}, {"a", "b"}, d, "q0", {"q2"}, "aaba", show="konfiguration" ):
+    if dea({"q0", "q1", "q2", "q3", "q4", "q5"}, {"a", "b"}, d, "q0", {"q4", "q5"}, "abbaabb", show="konfiguration" ):
         print("Der DEA hat das Wort akzeptiert!")
     else:
         print("Der DEA hat das Wort nicht akzeptiert!")
