@@ -411,3 +411,24 @@ digraph nea_1 {
 }
 
 ```
+
+
+## Lösung zur Aufgabe 6
+
+a) **abab** wird akzeptiert:
+
+b) *abaa* wird nicht akzeptiert:
+
+c) **abbaabb** wird akzeptiert:
+
+
+## Lösung zur Aufgabe 7
+
+a)
+
+b)
+
+c)
+
+
+## Lösung zur Aufgabe 8
