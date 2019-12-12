@@ -47,7 +47,7 @@ digraph nea_1 {
     rankdir=LR;
     size="7,5"
 
-    node [shape = doublecircle]; q4;
+
     node [shape = point ]; Start;
 
     node [shape = circle];
@@ -55,7 +55,8 @@ digraph nea_1 {
     node [label = "q₁"]; q1;
     node [label = "q₂"]; q2;
     node [label = "q₃"]; q3;
-    node [label = "q₄"]; q4;
+    
+    node [shape = doublecircle, label = "q₄"]; q4;
 
     Start -> q0 [ label = "Start" ];
 
@@ -68,8 +69,6 @@ digraph nea_1 {
     q4 -> q2 [ label = "0" ];
     q4 -> q4 [ label = "1" ];
     
-    {rank=same; q2, q3, q4}
-
 }
 
 ```
@@ -92,6 +91,7 @@ c) Die Übergangsfunktion als Tabelle:
 | \* $q_4$   |  $q_2$   | $q_4$   |
 +------------+----------+---------+
 
+\pagebreak
 
 Alternativ können Sie auch mit einer *totalen* statt einer *partiellen* Übergangsfunktion arbeiten:
 
@@ -109,7 +109,6 @@ digraph nea_1 {
     rankdir=LR;
     size="7,5"
 
-    node [shape = doublecircle]; q4;
     node [shape = point ]; Start;
 
     node [shape = circle];
@@ -117,9 +116,11 @@ digraph nea_1 {
     node [label = "q₁"]; q1;
     node [label = "q₂"]; q2;
     node [label = "q₃"]; q3;
-    node [label = "q₄"]; q4;
-    node [label = "q₅"]; 54;
+    node [label = "q₅"]; q5;
 
+    node [shape = doublecircle, label = "q₄"]; q4;
+
+    
     Start -> q0 [ label = "Start" ];
 
     q0 -> q1 [ label = "0" ];
@@ -138,7 +139,6 @@ digraph nea_1 {
 
 ```
 
-\pagebreak
 
 c') Die Übergangsfunktion als Tabelle:
 
@@ -160,6 +160,7 @@ c') Die Übergangsfunktion als Tabelle:
 +------------------------+----------+---------+
 
 
+\pagebreak
 
 ## Lösung zur Aufgabe 2
 
@@ -184,8 +185,6 @@ digraph nea_1 {
     q1 -> q2 [ label = "a" ];
     q2 -> q1 [ label = "b" ];
 
-    { rank=same; q1, q2 }
-
 }
 
 ```
@@ -200,7 +199,6 @@ a) Der Automat lässt sich beschreiben als $A=(Q, \Sigma, \delta, s, F)$ mit
     - Startzustand $s=q_0 \in Q$
     - Endzuständen $F=\{q_6\}\subseteq Q$
     
-\pagebreak
 
 b) Der Graph zur Übergangsfunktion lautet:
 
@@ -347,6 +345,7 @@ b) Die Tabelle der Übergangsfunktion lautet:
 | $*\{q_0,q_1,q_2,q_3,q_4\}$ |  $\{q_0, q_1, q_2, q_3, q_4\}$  | $\{q_0, q_2, q_4\}$    |
 +----------------------------+---------------------------------+------------------------+
 
+\pagebreak
 
 Wir ersetzen nun, damit es übersichtlicher wird, die Zustandsmengen in neue Zustände wie folgt:
 
@@ -428,7 +427,7 @@ b) *abaa* wird nicht akzeptiert!
     Lösung mit Konfigurationsübergängen:
 $$(z_0, abaa) \vdash (z_1, baa) \vdash (z_2, aa) \vdash (z_3, a) \vdash (z_3, \epsilon)$$
     Aber $z_3$ ist **kein** Endzustand!
-
+\pagebreak
 c) **abbaabb** wird akzeptiert:
     Lösung mit Konfigurationsübergängen:
 $$\begin{aligned}
@@ -440,18 +439,101 @@ $$\begin{aligned}
     
 ## Lösung zur Aufgabe 7
 
-a)
+a) Übergangsgraph zu  $(a+b)^*a(b+\epsilon)$:
 
-b)
+```{r DEA_Aufgabe_7_a, engine="dot", echo=FALSE, cache=TRUE}
+digraph nea_1 {
+    rankdir=LR;
+    size="7,5"
 
-c)
+    node [shape = point ]; Start;
+    node [shape = doublecircle ]; 
+    node [label = "q₁"]; q1;
+    node [label = "q₂"]; q2;
+    node [label = "q₃"]; q3;
+
+    node [shape = circle];
+    node [label = "q₀"]; q0;
+
+    Start -> q0 [ label = "Start" ];
+
+    q0 -> q1 [ label = "a" ];
+    q0 -> q0 [ label = "b" ];
+    q1 -> q2 [ label = "b" ];
+    q1 -> q3 [ label = "a" ];
+    q3 -> q1 [ label = "a" ];
+    q3 -> q2 [ label = "b" ];
+
+    {rank=same; q2, q3}
+}
+
+```
+
+
+b) Übergangsgraph zu $(a+b+c)^+$:
+
+```{r DEA_Aufgabe_7_b, engine="dot", echo=FALSE, cache=TRUE}
+digraph nea_1 {
+    rankdir=LR;
+    size="7,5"
+
+    node [shape = point ]; Start;
+    node [shape = doublecircle ];
+    node [label = "q₁"]; q1;
+
+    node [shape = circle];
+    node [label = "q₀"]; q0;
+
+    Start -> q0 [ label = "Start" ];
+
+    q0 -> q1 [ label = "a,b,c" ];
+    q1 -> q1 [ label = "a,b,c" ];
+}
+
+```
+
+\pagebreak
+
+c)  Übergangsgraph zu $(a+\epsilon)b(a+b+c)$:
+
+
+```{r DEA_Aufgabe_7_c, engine="dot", echo=FALSE, cache=TRUE}
+digraph nea_1 {
+    rankdir=LR;
+    size="7,5"
+
+    node [shape = point ]; Start;
+    node [shape = doublecircle ]; 
+    node [label = "q₃"]; q3;
+
+    node [shape = circle];
+    node [label = "q₀"]; q0;
+    node [label = "q₁"]; q1;
+    node [label = "q₂"]; q2;
+
+    Start -> q0 [ label = "Start" ];
+
+    q0 -> q1 [ label = "a" ];
+    q0 -> q2 [ label = "b" ];
+    q1 -> q2 [ label = "b" ];
+    q2 -> q3 [ label = "a, b, c" ];
+
+    {rank=same; q1, q2}
+}
+
+```
 
 
 ## Lösung zur Aufgabe 8
 
-...
-
+$a^*((ab)^*+(ba)^*(b+\epsilon))=a^*(ba)^*(b+\epsilon)$
 
 ## Lösung zur Aufgabe 9
+a) Das 5-Tupel für den DEA lautet:
 
-...
+$$A = \left( \{q_0, q_1, q_2, q_3\}, \{a, b, c\}, \delta, q_0, \{q_3\} \right)$$
+
+b) Akzeptiert werden z.B.: "abc" und "baabbca", nicht akzeptiert u.a.: "aaa", "bbb"
+
+c) Die akzeptierte Sprache lautet:
+$$L_A=\{w \in \{a,b,c\}^* \mid \exists x \in \{b, c\}^*, y \in \{a, c\}^*, z \in \{a, b\}^*, t \in \{a, b, c\}^*.w=xaybzct\}$$
