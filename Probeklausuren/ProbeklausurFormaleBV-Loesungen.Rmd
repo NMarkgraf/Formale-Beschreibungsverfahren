@@ -528,12 +528,14 @@ digraph nea_1 {
 
 $a^*((ab)^*+(ba)^*(b+\epsilon))=a^*(ba)^*(b+\epsilon)$
 
+
 ## Lösung zur Aufgabe 9
+
 a) Das 5-Tupel für den DEA lautet:
 
 $$A = \left( \{q_0, q_1, q_2, q_3\}, \{a, b, c\}, \delta, q_0, \{q_3\} \right)$$
 
-b) Akzeptiert werden z.B.: "abc" und "baabbca", nicht akzeptiert u.a.: "aaa", "bbb"
+b) Akzeptiert werden u.a. die Wörter "abc" und "baabbca", nicht akzeptiert u.a. die Wörter "aaa"und "bbb".
 
 c) Die akzeptierte Sprache lautet:
-$$L_A=\{w \in \{a,b,c\}^* \mid \exists x \in \{b, c\}^*, y \in \{a, c\}^*, z \in \{a, b\}^*, t \in \{a, b, c\}^*.w=xaybzct\}$$
+$$L_A=\left\{w \in \{a,b,c\}^* \mid \exists x \in \{b, c\}^*, y \in \{a, c\}^*, z \in \{a, b\}^*, t \in \{a, b, c\}^*.w=xaybzct\right\}$$
