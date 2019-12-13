@@ -164,7 +164,7 @@ c') Die Übergangsfunktion als Tabelle:
 
 ## Lösung zur Aufgabe 2
 
-a) $L_A =\left\{w \in \{a,b\}^* \mid \exists n,m \in \mathbf{N}_0.w= lvr . l=a^n\wedge v=(ab)^m \wedge (r=b \vee r=\epsilon) \right\}$
+a) $L_A =\left\{w \in \{a,b\}^* \mid \exists n,m \in \mathbf{N}_0.w= lvr . l=a^n\wedge v=(ba)^m \wedge (r=b \vee r=\epsilon) \right\}$
 
 b) Ein möglicher Graph für einen DEA lautet:
 
@@ -254,7 +254,7 @@ c) Die Übergangsfunktion als Tabelle:
 +------------------------+----------+---------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
 | $q_5$                  |  $q_6$   | $q_6$   | $q_6$  | $q_6$  | $q_6$  | $q_6$  | $q_6$  | $q_6$  | $q_6$  | $q_6$  | $q_6$  | 
 +------------------------+----------+---------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
-| $* \;q_6$              |  $q_2$   | $q_4$   | $\bot$ | $\bot$ | $\bot$ | $\bot$ | $\bot$ | $\bot$ | $\bot$ | $\bot$ | $\bot$ |
+| $* \;q_6$              |  $\bot$  | $\bot$  | $\bot$ | $\bot$ | $\bot$ | $\bot$ | $\bot$ | $\bot$ | $\bot$ | $\bot$ | $\bot$ |
 +------------------------+----------+---------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
 
 
@@ -267,7 +267,7 @@ a) Der Automat lässt sich beschreiben als $A=(Q, \Sigma, \delta, s, F)$ mit
     - Alphabet $\Sigma = \{a,b\}$
     - *partielle* Übergangsfunktion $\delta: Q \times (\Sigma \cup \{\epsilon\}) \to P(Q)$ wie unten.
     - Startzustand $s=q_0 \in Q$
-    - Endzuständen $F=\{q_6\}\subseteq Q$
+    - Endzuständen $F=\{q_4\}\subseteq Q$
     
 b) Der Graph zur Übergangsfunktion lautet:
 
@@ -450,7 +450,6 @@ digraph nea_1 {
     node [shape = doublecircle ]; 
     node [label = "q₁"]; q1;
     node [label = "q₂"]; q2;
-    node [label = "q₃"]; q3;
 
     node [shape = circle];
     node [label = "q₀"]; q0;
@@ -460,11 +459,11 @@ digraph nea_1 {
     q0 -> q1 [ label = "a" ];
     q0 -> q0 [ label = "b" ];
     q1 -> q2 [ label = "b" ];
-    q1 -> q3 [ label = "a" ];
-    q3 -> q1 [ label = "a" ];
-    q3 -> q2 [ label = "b" ];
+    q1 -> q1 [ label = "a" ];
+    q2 -> q1 [ label = "a" ];
+    q2 -> q0 [ label = "b" ];
 
-    {rank=same; q2, q3}
+    {rank=same; q1, q2}
 }
 
 ```

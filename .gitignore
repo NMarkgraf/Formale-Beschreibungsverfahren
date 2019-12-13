@@ -42,7 +42,7 @@ vignettes/*.pdf
 
 
 # Reproduzierbares nicht ins Repository!
-#Probeklausuren/*.pdf
+Probeklausuren/*.pdf
 Probeklausuren/*.tex
 Probeklausuren/Klausur-*
 
