@@ -1,8 +1,14 @@
-# Zustandsmenge Q
-# Eingabealphabet E
-# s aus Q Startzustand
-# Endzustäne F
-# Eingabe Eingabe
+#
+# Deterministischer Endlicher Automat
+# =-----------------=---------=------
+#
+# Dabei ist:
+#
+# Q die Menge aller Zustände (als Liste)
+# E die Menge des Eingabealphabet (als Liste)
+# s der Startzustand, ein Element aus Q
+# F die Menge der Endzustände (als Liste)
+# Eingabe als Zeichenkette
 
 def dea(Q, E, d, s, F, Eingabe, show=None):
 
@@ -68,6 +74,7 @@ def dea(Q, E, d, s, F, Eingabe, show=None):
         return True
     else:
         return False
+
 
 if __name__ == '__main__':
     # Tabelle der totalen Übergangsfunktion

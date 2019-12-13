@@ -1,8 +1,8 @@
 ---
-title: "Formale Beschreibungsverfahren (WiSe 2019/20)"
+title: "Formale Beschreibungsverfahren"
 subtitle: "Probeklausur / Lösungen"
 author: "Norman Markgraf"
-date: "9.12.2019"
+date: "WiSe 2019/20"
 fontsize: 12pt
 papersize: a4
 # linestretch: 1.25
